@@ -63,6 +63,8 @@ public class Graph {
 	}
 
 	public int[] dijkstra(int start, int target) {
+
+		// 我觉得可以优化大小
 		boolean[] used = new boolean[size * size];
 		int[] cost = new int[size * size];
 		int[] way = new int[size * size];
@@ -97,6 +99,7 @@ public class Graph {
 					int now2new = node.val;
 
 					if (start2new == 0) {
+						// 首次能到达新顶点
 						cost[node.index] = start2now + now2new;
 						way[node.index] = index;
 					} else if (start2new > start2now + now2new) {
