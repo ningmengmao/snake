@@ -148,6 +148,7 @@ public class Graph {
 		}
 	}
 
+	// 获取下一个距离start最近的点
 	private int getVertex(int[] cost, boolean[] used, int start, int index) {
 		int weight = Integer.MAX_VALUE;
 		int res = -1;
@@ -209,7 +210,8 @@ public class Graph {
 			default -> throw new RuntimeException();
 		}
 
-		// 判断header是否和apple位置相同
+		// 判断next是否和apple位置相同
+		// 如果相同, 生成新的apple
 		snake.addFirst(next);
 		if (next[0] == apple[0] && next[1] == apple[1]) {
 			generateNewApple();
@@ -217,7 +219,6 @@ public class Graph {
 			snake.removeLast();
 		}
 
-		// 如果相同, 生成新的apple
 	}
 
 	private Random random = new Random();
@@ -263,8 +264,6 @@ public class Graph {
 
 	public void setSnake(LinkedList<int[]> snake) {
 		this.snake = snake;
-
-
 	}
 
 
