@@ -13,6 +13,15 @@ public class GameFrame extends JFrame {
 
 	GameFrame() {
 		panel = new GamePanel();
+		init(panel);
+	}
+
+	GameFrame(int size) {
+		panel = new GamePanel(size, size);
+		init(panel);
+	}
+
+	private void init(GamePanel panel) {
 		this.add(panel);
 		this.setTitle("Snake");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

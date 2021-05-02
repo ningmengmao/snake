@@ -19,7 +19,7 @@ public class GamePanel extends JPanel {
 
 	private Graphics graphics;
 
-	private int[] apple = {10, 20};
+	private int[] apple = {10, 10};
 	private LinkedList<int[]> snake;
 
 	/**
@@ -33,8 +33,8 @@ public class GamePanel extends JPanel {
 		init();
 	}
 	GamePanel(int width, int height) {
-		this.WIDTH = width;
-		this.HEIGHT = height;
+		this.WIDTH = width * UNIT_SIZE;
+		this.HEIGHT = height * UNIT_SIZE;
 		init();
 	}
 

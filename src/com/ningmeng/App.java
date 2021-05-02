@@ -10,6 +10,38 @@ import java.util.LinkedList;
 public class App {
 
 	public static void main(String[] args) throws InterruptedException {
+		run();
+	}
+
+	private static void run() throws InterruptedException {
+		final int size = 20;
+		GameFrame frame = new GameFrame(size);
+
+		Graph graph = new Graph(size);
+		graph.setSnake(frame.panel.getSnake());
+		graph.setApple(frame.panel.getApple());
+
+		Thread thread = new Thread(() -> {
+			while (true) {
+				try {
+					Thread.sleep(5);
+					graph.move();
+					frame.panel.move();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+		});
+
+		thread.start();
+
+		thread.join();
+
+
+	}
+
+
+	private static void test() throws InterruptedException {
 		GameFrame frame = new GameFrame();
 
 		Thread.sleep(1000);
@@ -24,7 +56,5 @@ public class App {
 			Thread.sleep(1000);
 
 		}
-
-
 	}
 }
